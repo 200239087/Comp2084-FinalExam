@@ -1,0 +1,67 @@
+﻿@model IEnumerable<COMP2084FinalF2017.Models.Country>
+
+@{
+    ViewBag.Title = "Sochi 2014 Olympic Medal Tracker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sochi 2014 Olympic Medal Tracker</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Flag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gold)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bronze)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalMedals)
+        </th>
+        
+        @*<th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Content/Images/@item.Country1
+.jpg" alt="@item.Country1's Flag" />
+        </td>
+        <td>
+            @Html.ActionLink(item.Country1, "Details", "Countries", new { id=item.CountryID }, null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gold)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bronze)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalMedals)
+        </td>
+        
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CountryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CountryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CountryID })
+        </td>*@
+    </tr>
+}
+
+</table>
